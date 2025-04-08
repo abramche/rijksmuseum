@@ -20,7 +20,7 @@ public class ApiClient {
         }
     }
 
-    public GenericHTTPResponse makeAuthenticatedRequest(Culture culture, String endpoint, String query) throws IOException {
+    public GenericHTTPResponse makeAuthenticatedRequest(Culture culture, String endpoint, String query) {
         String url = BASE_URL + "/" + culture + endpoint + "?query=" + query + "&key=" + apiKey;
 
         Request request = new Request.Builder()
@@ -28,12 +28,15 @@ public class ApiClient {
                 .build();
 
         logRequest(request);
+        GenericHTTPResponse httpResponse = null;
 
         try (Response response = client.newCall(request).execute()) {
-            GenericHTTPResponse httpResponse = new GenericHTTPResponse(response);
+            httpResponse = new GenericHTTPResponse(response);
             logResponse(response, httpResponse.getResponseBody());
-            return httpResponse;
+        } catch (IOException e) {
+            logger.error("An error occurred while sending the request: ", e);
         }
+        return httpResponse;
     }
 
     private void logRequest(Request request) {
