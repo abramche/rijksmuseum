@@ -31,7 +31,7 @@ Before you run this project, make sure you have:
 - **IntelliJ IDEA** or other IDE (Maven will pick up an Allure plugin)
   ```bash
   brew install allure   # macOS
-  scoop install allure  # Windows (Scoop)```
+  scoop install allure  # Windows (Scoop)
 
 ---
 
