@@ -13,15 +13,15 @@ public class CollectionTest {
     public void collectionPaginationMaxObjectTest() {
         // given
         CollectionService collectionService = new CollectionService();
-        int maxCollectionSize = 5;
+        int maxPageSize = 5;
         CollectionQuery query = new CollectionQuery()
-                .setInvolvedMaker("Rembrandt van Rijn").setResultsPerPage(maxCollectionSize);
+                .setInvolvedMaker("Rembrandt van Rijn").setResultsPerPage(maxPageSize);
 
         // when
         Collection collection = collectionService.getCollection(Culture.NL, query);
 
         // then
-        assertThat(collection.count).isLessThanOrEqualTo(maxCollectionSize);
+        assertThat(collection.artObjects.size()).isLessThanOrEqualTo(maxPageSize);
     }
 
     @Test
