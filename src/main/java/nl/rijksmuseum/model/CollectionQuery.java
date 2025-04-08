@@ -23,13 +23,19 @@ public class CollectionQuery {
         return this;
     }
 
+    public CollectionQuery setQuery(String query) {
+        params.put("q", query.replaceAll(" ", "+"));
+        return this;
+    }
+
     public CollectionQuery setSorting(Sorting sorting) {
         params.put("s", sorting.toString());
         return this;
     }
 
     public CollectionQuery setInvolvedMaker(String involvedMaker) {
-        params.put("involvedMaker", involvedMaker);
+        // Old Rijksmuseum API does not use URLEncode, replace spaces with + instead
+        params.put("involvedMaker", involvedMaker.replaceAll(" ", "+"));
         return this;
     }
 

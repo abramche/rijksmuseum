@@ -2,13 +2,13 @@ package nl.rijksmuseum.enums;
 
 public enum Culture {
     NL("nl"),
-    BE("be")
+    EN("en")
     ;
 
     private final String culture;
 
     /**
-     * @param culture - sets the region for API calls
+     * @param culture - sets the language for API calls
      */
     Culture(String culture) {
         this.culture = culture;

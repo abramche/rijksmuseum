@@ -7,6 +7,9 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Collection {
+    @JsonProperty("count")
+    public int count;
+
     @JsonProperty("artObjects")
     public List<ArtObject> artObjects;
 }
