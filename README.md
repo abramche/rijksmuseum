@@ -26,12 +26,13 @@ Before you run this project, make sure you have:
 
 
 - **Allure CLI** installed for local report generation (optional)
-
-  -or-
-- **IntelliJ IDEA** or other IDE (Maven will pick up an Allure plugin)
   ```bash
   brew install allure   # macOS
   scoop install allure  # Windows (Scoop)
+  ```
+  
+  -or-
+- **IntelliJ IDEA** or other IDE (Maven will pick up an Allure plugin)
 
 ---
 
